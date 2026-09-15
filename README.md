@@ -40,15 +40,17 @@ The control system operates under the following automated sequence:
 | `O:0/1` | Digital Output | IL-01: Status Indicator Light | 1 = Illuminated |
 
 
-## 5.0 Simulation & Verification Protocol (FAT Criteria)
+## 5.0 Simulation & Verification Protocol (Dry Run Test)
 
-The logic was validated via RSLogix Emulate software. The system successfully passed the following Factory Acceptance Test (FAT) simulation states:
+The logic was validated via RSLogix Emulate software. The system successfully passed the following Dry Run Test simulation states:
 
-* **State 1 (Startup):** Initial power-up. `I:0/0` (0), `I:0/1` (0). **Result:** Pump `O:0/0` ENERGIZES. Indicator `O:0/1` remains OFF.
-* **State 2 (Charging):** Pressure reaches 90 PSI. `I:0/0` (1), `I:0/1` (0). **Result:** Pump `O:0/0` REMAINS ENERGIZED. Indicator `O:0/1` ENERGIZES.
-* **State 3 (Setpoint Achieved):** Pressure reaches 110 PSI. `I:0/0` (1), `I:0/1` (1). **Result:** Pump `O:0/0` DE-ENERGIZES. Indicator `O:0/1` REMAINS ENERGIZED.
-* **State 4 (Discharging):** Pressure falls below 110 PSI. `I:0/0` (1), `I:0/1` (0). **Result:** Pump `O:0/0` REMAINS DE-ENERGIZED. Indicator `O:0/1` REMAINS ENERGIZED.
-* **State 5 (Re-charging):** Pressure falls below 90 PSI. `I:0/0` (0), `I:0/1` (0). **Result:** Pump `O:0/0` RE-ENERGIZES. Indicator `O:0/1` DE-ENERGIZES.
+| Test State | Condition / Input Action | Expected Output | Status |
+| :--- | :--- | :--- | :---: |
+| **1. Startup** | Initial power-up. <br> `I:0/0` (0), `I:0/1` (0) | Pump `O:0/0` **ENERGIZES** <br> Indicator `O:0/1` **OFF** | ✅ PASS |
+| **2. Charging** | Pressure reaches 90 PSI. <br> `I:0/0` (1), `I:0/1` (0) | Pump `O:0/0` **REMAINS ENERGIZED** <br> Indicator `O:0/1` **ENERGIZES** | ✅ PASS |
+| **3. Setpoint Achieved** | Pressure reaches 110 PSI. <br> `I:0/0` (1), `I:0/1` (1) | Pump `O:0/0` **DE-ENERGIZES** <br> Indicator `O:0/1` **REMAINS ENERGIZED** | ✅ PASS |
+| **4. Discharging** | Pressure falls below 110 PSI. <br> `I:0/0` (1), `I:0/1` (0) | Pump `O:0/0` **REMAINS DE-ENERGIZED** <br> Indicator `O:0/1` **REMAINS ENERGIZED** | ✅ PASS |
+| **5. Re-charging** | Pressure falls below 90 PSI. <br> `I:0/0` (0), `I:0/1` (0) | Pump `O:0/0` **RE-ENERGIZES** <br> Indicator `O:0/1` **DE-ENERGIZES** | ✅ PASS |
 
 
 ## 6.0 Software Assets
