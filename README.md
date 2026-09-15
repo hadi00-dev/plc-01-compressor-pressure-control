@@ -57,3 +57,12 @@ The logic was validated via RSLogix Emulate software. The system successfully pa
 
 * The raw ladder logic project file (`.RSS`) can be found in the `/src/` directory.
 * A complete PDF export of the ladder logic program is available in the `/docs/` directory.
+
+
+## 7.0 Acknowledgements & My Learning Journey
+
+This project is a reflection of my ongoing, highly structured learning journey in PLC programming. The online courses I undertook made it incredibly easy to grasp the fundamentals and challenged me to apply critical thinking—specifically the 80/20 rule. By truly mastering just 20% of the core instruction sets, we can effectively execute 80% of real-world automation tasks. 
+
+Special thanks to the course instructor for the exercise materials:
+* **Course Detail:** Applied Logic (via Udemy) by Paul Lynn
+* **Project Concept:** The base process flow, diagrams, and core test criteria were provided as part of his excellent course materials.
